@@ -1,0 +1,43 @@
+\documentclass[12pt]{article}
+\usepackage{kotex}
+\usepackage{setspace}
+\usepackage{amsmath}
+\begin{document}
+\section*{Theorem 1.6.8.}
+ Suppose $X_n \rightarrow X$ a.s. Let $g, h$ be continuous functions with\\
+(i) $g \geq 0$ and $g(x) \rightarrow \infty$ as $|x| \rightarrow \infty$,\\
+(ii) $|h(x)| / g(x) \rightarrow 0$ as $|x| \rightarrow \infty$,\\
+and (iii) $\operatorname{Eg}\left(X_n\right) \leq K<\infty$ for all $n$.\\
+Then $\operatorname{Eh}\left(X_n\right) \rightarrow E h(X)$.\\
+Proof. By subtracting a constant from $h$, we can suppose without loss of generality that $h(0)=0$. Pick $M$ large so that $P(|X|=M)=0$ and $g(x)>0$ when $|x| \geq M$. Given a random variable $Y$, let $\bar{Y}=Y 1_{(|Y| \leq M)}$. Since $P(|X|=M)=0, \bar{X}_n \rightarrow \bar{X}$ a.s. Since $h\left(\bar{X}_n\right)$ is bounded and $h$ is continuous, it follows from the bounded convergence theorem that\\
+(a) \begin{center}$\quad E h\left(\bar{X}_n\right) \rightarrow \operatorname{Eh}(\bar{X})$ 
+\end{center}
+To control the effect of the truncation, we use the following:\\
+(b)
+$|E h(\bar{Y})-E h(Y)| \leq E|h(\bar{Y})-h(Y)| \leq E(|h(Y)| ;|Y|>M) \leq \epsilon_M E g(Y)$
+where $\epsilon_M=\sup \{|h(x)| / g(x):|x| \geq M\}$. To check the second inequality, note that when $|Y| \leq M, \bar{Y}=Y$, and we have supposed $h(0)=0$. The third inequality follows from the definition of $\epsilon_M$.
+Taking $Y=X_n$ in (b) and using (iii), it follows that\\
+(c) \begin{center}$\quad\left|E h\left(\bar{X}_n\right)-E h\left(X_n\right)\right| \leq K \epsilon_M$
+\end{center}
+To estimate $|E h(\bar{X})-E h(X)|$, we observe that $g \geq 0$ and $g$ is continuous, so Fatou's lemma implies
+$$
+E g(X) \leq \liminf _{n \rightarrow \infty} E g\left(X_n\right) \leq K
+$$
+Taking $Y=X$ in (b) gives\\
+$(\mathrm{d})$
+$$
+|E h(\bar{X})-E h(X)| \leq K \epsilon_M
+$$
+The triangle inequality implies
+$$
+\begin{aligned}
+\left|E h\left(X_n\right)-E h(X)\right| & \leq\left|E h\left(X_n\right)-E h\left(\bar{X}_n\right)\right| \\
+& +\left|E h\left(\bar{X}_n\right)-E h(\bar{X})\right|+|E h(\bar{X})-E h(X)|
+\end{aligned}
+$$
+Taking limits and using (a), (c), (d), we have
+$$
+\limsup _{n \rightarrow \infty}\left|E h\left(X_n\right)-E h(X)\right| \leq 2 K \epsilon_M
+$$
+which proves the desired result since $K<\infty$ and $\epsilon_M \rightarrow 0$ as $M \rightarrow \infty$.
+\end{document}
